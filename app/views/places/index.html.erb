@@ -8,8 +8,8 @@
 
     
       <% if place.photos.present? %>
-        <div class="col-12">
-          <%= image_tag place.photos.last.picture.url %>
+        <div class="col-12 text-center">
+          <%= image_tag place.photos.last.picture.url, class: "img-fluid img-thumbnail rounded mx-auto d-block" %>
           <br />
           <small><%= place.photos.last.caption %></small>
         </div>

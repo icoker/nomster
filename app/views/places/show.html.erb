@@ -3,13 +3,13 @@
   <i><%= @place.address %></i>
   <br /><br />
   <% @place.photos.each do |photo| %>
-    <div class="col-12">
+    <div class="col-12 text-center">
       <% if photo.picture.present? %>
-        <%= image_tag photo.picture.url %>
+        <%= image_tag photo.picture.url, class: "img-fluid img-thumbnail rounded mx-auto d-block" %>
       <% end %>
-      <br />
       <small><%= photo.caption %></small>
     </div>
+    <br />
   <% end %>
   <br /><br />
   <p><%= @place.description %></p>
@@ -22,7 +22,7 @@
         var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
 
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 12,
+          zoom: 15,
           center: myLatLng
         });
 
@@ -34,7 +34,7 @@
       }
     </script>
     <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMcK2hcWj-Dh9P81r7RZmFKMxTfPPzLRs&callback=initMap">
+      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GEOCODER_API_KEY'] %>&callback=initMap">
     </script>
 
     <div id="map"></div>
