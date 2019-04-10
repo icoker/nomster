@@ -2,16 +2,6 @@
   <h1><%= @place.name %></h1>
   <i><%= @place.address %></i>
   <br /><br />
-  <% @place.photos.each do |photo| %>
-    <div class="col-12 text-center">
-      <% if photo.picture.present? %>
-        <%= image_tag photo.picture.url, class: "img-fluid img-thumbnail rounded mx-auto d-block" %>
-      <% end %>
-      <small><%= photo.caption %></small>
-    </div>
-    <br />
-  <% end %>
-  <br /><br />
   <p><%= @place.description %></p>
 
   <% if @place.latitude.present? && @place.longitude.present? %>
@@ -43,6 +33,15 @@
 
   <br />
 
+  <% @place.photos.each do |photo| %>
+    <div class="col-12 text-center">
+      <% if photo.picture.present? %>
+        <%= image_tag photo.picture.url, class: "img-fluid img-thumbnail rounded mx-auto d-block" %>
+      <% end %>
+      <small><%= photo.caption %></small>
+    </div>
+    <br />
+  <% end %>
 
   <div class="clear"></div>
 
