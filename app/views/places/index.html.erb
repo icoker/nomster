@@ -7,12 +7,19 @@
     <p><%= place.description %></p><br />
 
     
-
+      <% if place.photos.present? %>
+        <div class="col-12">
+          <%= image_tag place.photos.last.picture.url %>
+          <br />
+          <small><%= place.photos.last.caption %></small>
+        </div>
+      <% end %>
  
 
     <% if place.user.present? %>
       <small><%= place.user.email %></small>
     <% end %>
+
     <% if place.comments.present? %>
       <div class="col-12">
         <blockquote>
@@ -24,6 +31,7 @@
         </blockquote>
       </div>
     <% end %>
+
   </div>
 <% end %>
 
